@@ -9,6 +9,7 @@ find_package(rcl REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(rmw REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
+find_package(spdlog REQUIRED)
 
 # Default to C11
 if(NOT CMAKE_C_STANDARD)
@@ -42,6 +43,7 @@ set_source_files_properties(
 add_library(${PROJECT_NAME}
   ${rcl_action_sources}
 )
+target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
