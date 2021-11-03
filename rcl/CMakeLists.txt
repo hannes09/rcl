@@ -12,6 +12,7 @@ find_package(rmw REQUIRED)
 find_package(rmw_implementation REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 find_package(tracetools REQUIRED)
+find_package(spdlog REQUIRED)
 
 include(cmake/rcl_set_symbol_visibility_hidden.cmake)
 include(cmake/get_default_rcl_logging_implementation.cmake)
@@ -67,6 +68,8 @@ set(${PROJECT_NAME}_sources
 )
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_sources})
+target_link_libraries(${PROJECT_NAME} PUBLIC spdlog::spdlog)
+  
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include>")
