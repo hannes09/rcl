@@ -68,7 +68,7 @@ set(${PROJECT_NAME}_sources
 )
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_sources})
-target_link_libraries(${PROJECT_NAME} PUBLIC spdlog::spdlog)
+target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
   
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
