@@ -122,6 +122,7 @@ ament_export_dependencies(rcutils)
 ament_export_dependencies(${RCL_LOGGING_IMPL})
 ament_export_dependencies(rosidl_runtime_c)
 ament_export_dependencies(tracetools)
+ament_export_dependencies(spdlog)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
